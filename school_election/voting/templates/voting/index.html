@@ -4,12 +4,10 @@
     <title>School Election</title>
 </head>
 <body>
-    <h1>Posts</h1>
-    <ul>
-        {% for post in posts %}
-            <li><a href="{% url 'vote' post.id %}">{{ post.name }}</a></li>
-        {% endfor %}
-    </ul>
-    <!-- <a href="{% url 'results' %}">View Results</a> -->
+    <h1>Welcome to the School Election</h1>
+    <form action="{% url 'start_voting' %}" method="get">
+        <button type="submit">Start Voting</button>
+    </form>
 </body>
 </html>
+
