@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vote</title>
+</head>
+<body>
+    <h1>Vote for {{ post.name }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        <ul>
+            {% for candidate in form.fields.candidate.queryset %}
+                <li>
+                    <label>
+                        <input type="radio" name="candidate" value="{{ candidate.id }}">
+                        <img src="{{ candidate.photo.url }}" alt="{{ candidate.name }}" width="100">
+                        {{ candidate.name }}
+                    </label>
+                </li>
+            {% endfor %}
+        </ul>
+        <button type="submit">Submit Vote</button>
+    </form>
+</body>
+</html>
+

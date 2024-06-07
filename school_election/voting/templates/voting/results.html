@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Election Results</title>
+</head>
+<body>
+    <h1>Election Results</h1>
+    <ul>
+        {% for post in posts %}
+            <li>{{ post.name }}
+                <ul>
+                    {% for candidate in post.candidates.all %}
+                        <li>
+                            <img src="{{ candidate.photo.url }}" alt="{{ candidate.name }}" style="width:100px;height:100px;">
+                            {{ candidate.name }} - {{ candidate.vote_set.count }} votes
+                        </li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'manage' %}">Manage Election</a>
+    <a href="{% url 'logout' %}">Logout</a>
+</body>
+</html>
