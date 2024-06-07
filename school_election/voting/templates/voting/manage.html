@@ -2,25 +2,33 @@
 <html>
 <head>
     <title>Manage Election</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/results.css' %}">
 </head>
 <body>
-    <h1>Manage Election</h1>
+    <div class="container">
+        <h1>Manage Election</h1>
     <ul>
         {% for post in posts %}
-            <li>{{ post.name }}
+        <div class="post-box">
+            <li><h3>{{ post.name }}</h3>
                 <ul>
                     {% for candidate in post.candidates.all %}
                         <li>
-                            <img src="{{ candidate.photo.url }}" alt="{{ candidate.name }}" style="width:100px;height:100px;">
-                            {{ candidate.name }}
+                            <div class="candidate-info">
+                                <img src="{{ candidate.photo.url }}" alt="{{ candidate.name }}" style="width:100px;height:100px;">
+                                {{ candidate.name }}
+                            </div>
                         </li>
                     {% endfor %}
                 </ul>
             </li>
+        </div>
         {% endfor %}
     </ul>
-    <a href="{% url 'admin:index' %}">Admin Dashboard</a>
-    <a href="{% url 'results' %}">View Results</a>
-    <a href="{% url 'logout' %}">Logout</a>
+    <a href="{% url 'admin:index' %}" class="btn">Admin Dashboard</a>
+    <a href="{% url 'results' %}" class="btn">View Results</a>
+    <a href="{% url 'logout' %}" class="btn">Logout</a>
+    </div>
 </body>
 </html>

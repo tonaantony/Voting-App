@@ -1,53 +1,29 @@
-<!-- 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Vote</title>
-</head>
-<body>
-    <h1>Vote for {{ post.name }}</h1>
-    <form method="post">
-        {% csrf_token %}
-        <ul>
-            {% for candidate in form.fields.candidate.queryset %}
-                <li>
-                    <label>
-                        <input type="radio" name="candidate" value="{{ candidate.id }}">
-                        <img src="{{ candidate.photo.url }}" alt="{{ candidate.name }}" width="100">
-                        {{ candidate.name }}
-                    </label>
-                </li>
-            {% endfor %}
-        </ul>
-        <button type="submit">Submit Vote</button>
-    </form>
-</body>
-</html>
- -->
-
-
- <!DOCTYPE html>
- <html>
- <head>
-     <title>Vote for {{ post.name }}</title>
- </head>
- <body>
-     <h1>Vote for {{ post.name }}</h1>
-     <form method="post">
-         {% csrf_token %}
-         <ul>
-             {% for candidate in form.fields.candidate.queryset %}
-                 <li>
-                     <label>
-                         <input type="radio" name="candidate" value="{{ candidate.id }}">
-                         <img src="{{ candidate.photo.url }}" alt="{{ candidate.name }}" width="100">
-                         {{ candidate.name }}
-                     </label>
-                 </li>
-             {% endfor %}
-         </ul>
-         <button type="submit">Submit Vote</button>
-     </form>
- </body>
- </html>
- 
+  <!DOCTYPE html>
+  <html>
+  <head>
+      <title>Vote for {{ post.name }}</title>
+      {% load static %}
+      <link rel="stylesheet" type="text/css" href="{% static 'css/vote.css' %}">
+  </head>
+  <body>
+      <div class="container">
+          <h1>Vote for {{ post.name }}</h1>
+          <form method="post">
+              {% csrf_token %}
+              <div class="candidates">
+                  {% for candidate in form.fields.candidate.queryset %}
+                      <label class="candidate">
+                          <div class="candidate-box">
+                              <img src="{{ candidate.photo.url }}" alt="{{ candidate.name }}">
+                              <p>{{ candidate.name }}</p>
+                          </div>
+                          <input type="radio" name="candidate" value="{{ candidate.id }}">
+                      </label>
+                  {% endfor %}
+              </div>
+              <button type="submit">Submit Vote</button>
+          </form>
+      </div>
+  </body>
+  </html>
+  

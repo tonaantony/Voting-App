@@ -1,0 +1,72 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+.container {
+  text-align: center;
+  margin: auto;
+  width: 80%; /* Adjust container width as needed */
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+.post-box {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #fff;
+  margin-bottom: 20px;
+  max-width: 600px; /* Set the maximum width */
+  margin: 0 auto; /* Center the post box horizontally */
+  margin-top: 10px;
+}
+
+
+h2 {
+  margin-bottom: 10px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.candidate-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px; /* Adjust the spacing between buttons */
+  margin-top: 20px;
+}
+
+.btn:hover {
+  background-color: #0056b3; /* Darker shade of the button color on hover */
+}
+

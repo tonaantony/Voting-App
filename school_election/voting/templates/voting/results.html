@@ -2,24 +2,29 @@
 <html>
 <head>
     <title>Election Results</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/results.css' %}">
 </head>
 <body>
-    <h1>Election Results</h1>
-    <ul>
+    <div class="container">
+        <h1>Election Results</h1>
         {% for post in posts %}
-            <li>{{ post.name }}
+            <div class="post-box">
+                <h2>{{ post.name }}</h2>
                 <ul>
                     {% for candidate in post.candidates.all %}
                         <li>
-                            <img src="{{ candidate.photo.url }}" alt="{{ candidate.name }}" style="width:100px;height:100px;">
-                            {{ candidate.name }} - {{ candidate.vote_set.count }} votes
+                            <div class="candidate-info">
+                                <img src="{{ candidate.photo.url }}" alt="{{ candidate.name }}">
+                                <p>{{ candidate.name }} - {{ candidate.vote_set.count }} votes</p>
+                            </div>
                         </li>
                     {% endfor %}
                 </ul>
-            </li>
+            </div>
         {% endfor %}
-    </ul>
-    <a href="{% url 'manage' %}">Manage Election</a>
-    <a href="{% url 'logout' %}">Logout</a>
+        <a href="{% url 'manage' %}" class="btn">Manage Election</a>
+        <a href="{% url 'logout' %}" class="btn">Logout</a>
+    </div>
 </body>
 </html>

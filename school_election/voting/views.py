@@ -11,7 +11,7 @@ def vote_post(request, post_id=None):
         # Start voting from the first post
         first_post = Post.objects.first()
         if not first_post:
-            return redirect('home')
+            return redirect('index')
         return redirect('vote_post', post_id=first_post.id)
     
     post = get_object_or_404(Post, id=post_id)
