@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Voting Complete</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/vote_complete.css' %}">
+    <script>
+        window.onload = function() {
+            var beepSound = new Audio("{% static 'sounds/beep.mp3' %}");
+            beepSound.play();
+            setTimeout(function() {
+                window.location.href = "{% url 'index' %}";
+            }, 1500); // Redirect after 2 seconds
+        }
+    </script>
+</head>
+<body>
+    <h1>Thank you for voting!</h1>
+</body>
+</html>

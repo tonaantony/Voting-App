@@ -35,7 +35,7 @@ def vote_post(request, post_id=None):
             if next_post:
                 return redirect('vote_post', post_id=next_post.id)
             else:
-                return redirect('index')
+                return render(request, 'voting/vote_complete.html')
     else:
         form = VoteForm(post=post)
     return render(request, 'voting/vote.html', {'post': post, 'form': form, 'next_post': next_post})
